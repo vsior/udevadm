@@ -7,14 +7,14 @@ import (
     "context"
     "fmt"
     "time"
-    "github.com/vsior/udevadm/monitor"
+    "github.com/vsior/udevadm"
 )
 
 func main() {
     ctx, c := context.WithDeadline(context.Background(), time.Now().Add(time.Second*15))
     defer c()
 
-    mon, err := monitor.NewMonitor(ctx)
+    mon, err := udevadm.NewMonitor(ctx)
     if err != nil {
         panic(err)
     }
